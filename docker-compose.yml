@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker  # Utilizando el perfil Docker
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/lista-tareas  # Apuntando al servicio MongoDB
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  react-app:  # Nuevo servicio para tu proyecto de React
+    build:
+      context: ./my-react-app  # Ruta al proyecto de React
+    ports:
+      - "3000:3000"  # Mapeo del puerto de React
+
+volumes:
+  mongodb_data:

@@ -1,0 +1,57 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* App.css */
+
+.App {
+  text-align: center; /* Centra el contenido de la aplicación */
+}
+
+ul {
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding predeterminado */
+  margin: 0 auto; /* Centra la lista */
+  max-width: 600px; /* Establece una anchura máxima para la lista */
+}
+
+li {
+  background-color: #f7f7f7; /* Fondo claro para cada tarea */
+  margin: 10px 0; /* Espacio entre tareas */
+  padding: 10px; /* Espacio dentro de cada tarea */
+  border-radius: 5px; /* Bordes redondeados para cada tarea */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
