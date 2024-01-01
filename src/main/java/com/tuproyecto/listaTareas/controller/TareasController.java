@@ -33,6 +33,7 @@ public class TareasController {
 	// Crear una nueva tarea
 	@PostMapping
 	public Tarea createTarea(@RequestBody Tarea nuevaTarea) {
+		System.out.println("Empezamos");
 		return tareaRepository.save(nuevaTarea);
 	}
 
