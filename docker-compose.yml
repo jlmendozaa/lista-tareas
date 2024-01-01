@@ -24,7 +24,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-    command: yarn start  # Comando para ejecutar la aplicación
+    command: npm start  # Comando para ejecutar la aplicación
     depends_on:
       - app  # Si tu aplicación Next.js depende del backend de Spring Boot
 
