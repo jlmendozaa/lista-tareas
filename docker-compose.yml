@@ -1,16 +1,16 @@
 version: '3.8'
 services:
-  app:
+  app:  # Tu backend de Spring Boot
     build: .
     ports:
       - "8080:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker  # Utilizando el perfil Docker
-      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/lista-tareas  # Apuntando al servicio MongoDB
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/lista-tareas
     depends_on:
       - mongodb
 
-  mongodb:
+  mongodb:  # Tu base de datos MongoDB
     image: mongo
     container_name: mongodb
     ports:
@@ -18,11 +18,15 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-  react-app:  # Nuevo servicio para tu proyecto de React
-    build:
-      context: ./my-react-app  # Ruta al proyecto de React
+  next-app:  # Tu aplicación Next.js
+    build: ./my-app-next  # Asegúrate de actualizar esta ruta
     ports:
-      - "3000:3000"  # Mapeo del puerto de React
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    command: yarn start  # Comando para ejecutar la aplicación
+    depends_on:
+      - app  # Si tu aplicación Next.js depende del backend de Spring Boot
 
 volumes:
   mongodb_data:
