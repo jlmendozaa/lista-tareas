@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     e.preventDefault();
 
     // Aquí es donde enviarás los datos a tu API para guardarlos en la base de datos
-    const response = await fetch('/api/tareas', {
+    const response = await fetch('http://localhost:8080/api/tareas', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
